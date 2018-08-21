@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
 		<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-rtl.min.css">
 		<link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-icons.min.css">
+		<link rel="stylesheet" href="onzer.css">
 		<script src="onzer.js"></script>
    	 	
 
@@ -33,8 +34,6 @@ $music->execute(array($id_music));
 $reqmusic = $music->fetch();
 {
     ?>
-
-
 <audio id = "player"
 	   data-role="audio"
 	   data-loop-icon="<span class='mif-loop2 fg-orange'></span>"
@@ -47,12 +46,12 @@ $reqmusic = $music->fetch();
 	   >
 <source src="<?php echo $reqmusic['url_music'] ?>" type="audio/mpeg">
 </audio>
-div data-role="stepper" data-steps="5" id="stepper_methods"></div>
+
 
 <div class="d-flex flex-justify-center mt-4">
     
-    <button class="button m-1" onclick="stepperMethod('prev')">Prev</button>
-    <button class="button m-1" onclick="stepperMethod('next')">Next</button>
+    <button class="button m-1" onclick="stepperMethod('prev')">Precedent</button>
+    <button class="button m-1" onclick="audioSuivant">Suivant</button>
     
 </div>
 
@@ -65,7 +64,7 @@ div data-role="stepper" data-steps="5" id="stepper_methods"></div>
 
 <script>
 var suivante = id_music + 1;
- var audio = document.getElementById("player"); audio.addEventListener("ended", function() { 
+var audioSuivant = document.getElementById("player"); audio.addEventListener("ended", function() { 
 	 audio.src = suivante; audio.play(); }); 
 
 </script>
